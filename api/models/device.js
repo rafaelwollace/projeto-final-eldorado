@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Device.hasMany(models.Category, {
+      Device.belongsTo(models.Category, {
         foreignKey: 'Category_fk'
       })
     }

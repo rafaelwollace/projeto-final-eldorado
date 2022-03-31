@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Category.hasMany(models.Device, {
+        foreignKey: 'Category_fk'
+      })
     }
   }
   Category.init({
@@ -18,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Category',
+    freezeTableName: true,
+    createdAt: false,
+    updatedAt: false
   });
   return Category;
 };
