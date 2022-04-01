@@ -10,10 +10,10 @@ API/CONFIG/CONFIG.JSON
   
 # INSTALANDO DEPENDÊNCIAS 
   COM O NODE INSTALADO NA PASTA RAIZ DO PROJETO BACKEND DIGITE
-    npm install ( instala as dependencias )
-    npx sequelize-cli db:migrate ( cria a migração do banco )
-    npx sequelize-cli db:seed:all ( insere apenas um dado para teste )
-    npm start ( roda o sistema porta 3000 )
+   - npm install ( instala as dependencias )
+   - npx sequelize-cli db:migrate ( cria a migração do banco )
+   - npx sequelize-cli db:seed:all ( insere apenas um dado para teste )
+   - npm start ( roda o sistema porta 3000 )
  
  #ROTA DE TESTE
  - http://localhost:3000/api/device
