@@ -5,6 +5,7 @@ const device = require('./deviceRoute')
 module.exports = app => {
   app.use(
     express.json(),
-    category
+    category,
+    device
   )
 }

@@ -3,7 +3,7 @@ const CategoryController = require('../controllers/CategoryController')
 
 const router = Router()
 
-router.get('/category', CategoryController.todasCategory)
+router.get('/api/category', CategoryController.read)
 
 
 module.exports = router
