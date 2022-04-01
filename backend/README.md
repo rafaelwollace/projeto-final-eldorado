@@ -1,2 +1,4 @@
 # projeto-final-eldorado
 Projeto Final do Curso EldoradoTech
+
+BACKEND API, NESTA API ESTOU USANDO SEQUELIZE E SEQUELIZE CLI, MIGRATIONS, SEED E MYSQL.
