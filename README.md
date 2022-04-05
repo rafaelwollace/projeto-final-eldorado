@@ -1,6 +1,7 @@
 # projeto-final-eldorado
 Projeto Final do Curso EldoradoTech
-
+________________________________________________________________________________________________________________________________________________________________________
+# BACKEND
 # A PRINCIPIO ESTOU USANDO AS TECNOLOGIAS ABAIXO
 BACKEND API, NESTA API ESTOU USANDO SEQUELIZE E SEQUELIZE CLI, MIGRATIONS, SEED E MYSQL.
 
@@ -21,4 +22,5 @@ API/CONFIG/CONFIG.JSON
  #ROTA DE TESTE
  - http://localhost:3000/api/device
  - http://localhost:3000/api/category
+ - ____________________________________________________________________________________________________________________________________________________________________
 
