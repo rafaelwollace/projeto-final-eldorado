@@ -9,6 +9,8 @@ API/CONFIG/CONFIG.JSON
   COLOCAR SUAS CONFIGURAÇÕES DE BANCO MYSQL
   
 # INSTALANDO DEPENDÊNCIAS 
+  ENTRE NA PASTA BACKEND
+  
   COM O NODE INSTALADO NA PASTA RAIZ DO PROJETO BACKEND DIGITE
    - npm install ( instala as dependencias )
    - npx run database ( cria a database )
