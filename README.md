@@ -11,7 +11,7 @@ API/CONFIG/CONFIG.JSON
 # INSTALANDO DEPENDÊNCIAS 
   ENTRE NA PASTA BACKEND
   
-  COM O NODE INSTALADO NA PASTA RAIZ DO PROJETO BACKEND DIGITE
+  COM O NODE INSTALADO NA PASTA BACKEND DIGITE
    - npm install ( instala as dependencias )
    - npx run database ( cria a database )
    - npx run migrate ( cria a migração do banco )
