@@ -14,9 +14,9 @@ API/CONFIG/CONFIG.JSON
   
   COM O NODE INSTALADO NA PASTA BACKEND DIGITE
    - npm install ( instala as dependencias )
-   - npx run database ( cria a database )
-   - npx run migrate ( cria a migração do banco )
-   - npx run seed ( insere apenas um dado para teste )
+   - npm run database ( cria a database )
+   - npm run migrate ( cria a migração do banco )
+   - npm run seed ( insere apenas um dado para teste )
    - npm start ( roda o sistema porta 3000 )
  
  #ROTA DE TESTE
