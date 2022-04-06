@@ -16,9 +16,39 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   }
+
   Device.init({
-    Color: DataTypes.STRING,
-    PartNumber: DataTypes.INTEGER
+    Color:{
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: {
+          args: true,
+          msg: 'Campo color somente letras.'
+        },
+        len:{
+          args:[0,16],
+          msg:"Campo Color máximo 16 caracteres."
+        },
+        notNull: {
+          msg: 'Campo Color não pode ser nulo.'
+        },
+
+      },
+    },
+    PartNumber:{
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    validate: {
+      isInt: {
+        args: true,
+        msg: 'Campo PartNumber somente números inteiro.'
+      },
+      notNull: {
+        msg: 'Campo PartNumber não pode ser nulo.'
+      },
+    },
+    },
   }, {
     sequelize,
     modelName: 'Device',

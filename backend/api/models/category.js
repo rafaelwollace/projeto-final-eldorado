@@ -17,7 +17,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Category.init({
-    Name: DataTypes.STRING
+    Name:{
+     type: DataTypes.STRING,
+     allowNull: false,
+     validate: {
+      len:{
+        args:[0,126],
+        msg:"Campo Name máximo 126 caracteres."
+      },
+      notEmpty:{
+        args: true,
+        msg: "Campo Name não pode ser vazio."
+      },
+      notNull: {
+        msg: 'Please enter your name'
+      },
+    },
+    },
   }, {
     sequelize,
     modelName: 'Category',

@@ -10,6 +10,16 @@ class CategoryController {
             return res.status(500).json(error.message)
         }
     }
+
+    static async create(req, res) {
+        const nwCategory = req.body
+        try {
+          const newCategory = await database.Category.create(nwCategory)
+          return res.status(200).json(newCategory)
+        } catch (error) {
+          return res.status(500).json(error.message)
+        }
+      }
 }
 
 
