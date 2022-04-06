@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         msg: "Campo Name não pode ser vazio."
       },
       notNull: {
-        msg: 'Please enter your name'
+        msg: 'Campo Name não pode nullo.'
       },
     },
     },
