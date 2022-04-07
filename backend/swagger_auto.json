@@ -13,7 +13,11 @@
   "paths": {
     "/api/category": {
       "post": {
-        "description": "",
+        "description": "Cadastro de Category",
+        "sumary": "Cadastro de Category",
+        "tags": [
+          "CREATE - CADASTRO DE CATEGORY"
+        ],
         "parameters": [
           {
             "name": "body",
@@ -38,7 +42,11 @@
         }
       },
       "get": {
-        "description": "",
+        "description": "Lista de Category",
+        "sumary": "Lista de Category",
+        "tags": [
+          "READ - LISTA DE CATEGORY"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -52,7 +60,11 @@
     },
     "/api/category/{id}": {
       "delete": {
-        "description": "",
+        "description": "Delete de Category",
+        "sumary": "Delete de Category",
+        "tags": [
+          "DELETE - APAGAR CATEGORY"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -73,7 +85,11 @@
     },
     "/api/device": {
       "post": {
-        "description": "",
+        "description": "Cadastro de Device",
+        "sumary": "Cadastro de Device",
+        "tags": [
+          "CREATE - CADASTRO DE DEVICE"
+        ],
         "parameters": [
           {
             "name": "body",
@@ -104,7 +120,11 @@
         }
       },
       "get": {
-        "description": "",
+        "description": "Category - Read",
+        "sumary": "Lista de Device",
+        "tags": [
+          "READ - LISTA DE DEVICE"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -118,7 +138,11 @@
     },
     "/api/device/{id}": {
       "delete": {
-        "description": "",
+        "description": "Category - Delete",
+        "sumary": "Deletar device pelo ID",
+        "tags": [
+          "DELETE - APAGAR DEVICE"
+        ],
         "parameters": [
           {
             "name": "id",
