@@ -5,10 +5,12 @@
   "main": "./api/index.js",
   "scripts": {
     "start": "nodemon ./api/index.js --ignore __tests__",
-    "test": "jest",
     "database": "npx sequelize-cli db:create",
     "migrate": "npx sequelize-cli db:migrate",
-    "seed": "npx sequelize-cli db:seed:all"
+    "seed": "npx sequelize-cli db:seed:all",
+    "pretest": "npx cross-env NODE_ENV=test sequelize db:migrate",
+    "test": "npx cross-env NODE_ENV=test jest",
+    "posttest": " npx cross-env NODE_ENV=test sequelize db:migrate:undo:all"
   },
   "repository": {
     "type": "git",
@@ -27,11 +29,14 @@
     "path": "^0.12.7",
     "sequelize": "^6.17.0",
     "sequelize-cli": "^6.4.1",
+    "sqlite3": "^5.0.2",
     "swagger-autogen": "^2.20.8",
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "jest": "^27.5.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }
