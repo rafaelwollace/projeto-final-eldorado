@@ -14,7 +14,7 @@ describe('POST /category', function () {
     it('Cadastro de Category', function (done) {
         request(app)
             .post('/api/category')
-            .send({ Name: "null" })
+            .send({ Name: null })
             .set('Accept', 'application/json')
 
             .expect(200)
