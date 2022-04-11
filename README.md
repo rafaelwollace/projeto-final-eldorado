@@ -19,7 +19,7 @@ EDITAR O ARQUIVO NA RAIZ .env
    - npm run seed ( insere apenas um dado para teste )
    - npm start ( roda o sistema porta 3000 )
 
-  TESTES - ESTOU ultilizando o banco SQLITE PARA OS TESTE
+  TESTES  ESTOU ultilizando o banco SQLITE PARA OS TESTE
     - npm run test
  
  #ROTA DE TESTE - SWAGGER
