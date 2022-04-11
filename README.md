@@ -20,7 +20,7 @@ EDITAR O ARQUIVO NA RAIZ .env
    - npm start ( roda o sistema porta 3000 )
 
   TESTES - ESTOU ultilizando o banco SQLITE PARA OS TESTE
-    -npm run test
+    - npm run test
  
  #ROTA DE TESTE - SWAGGER
  - http://localhost:3000/
