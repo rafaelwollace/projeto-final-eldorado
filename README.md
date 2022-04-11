@@ -6,7 +6,7 @@ ________________________________________________________________________________
 BACKEND API, NESTA API ESTOU USANDO SEQUELIZE E SEQUELIZE CLI, MIGRATIONS, SEED, SWAGGER E MYSQL.
 
 # BANCO 
-API/CONFIG/CONFIG.JSON
+EDITAR O ARQUIVO NA RAIZ .env 
   COLOCAR SUAS CONFIGURAÇÕES DE BANCO MYSQL
   
 # INSTALANDO DEPENDÊNCIAS 
@@ -18,9 +18,11 @@ API/CONFIG/CONFIG.JSON
    - npm run migrate ( cria a migração do banco )
    - npm run seed ( insere apenas um dado para teste )
    - npm start ( roda o sistema porta 3000 )
+
+  TESTES - ESTOU ultilizando o banco SQLITE PARA OS TESTE
+    -npm run test
  
- #ROTA DE TESTE
- - http://localhost:3000/api/device
- - http://localhost:3000/api/category
+ #ROTA DE TESTE - SWAGGER
+ - http://localhost:3000/
  - ____________________________________________________________________________________________________________________________________________________________________
 
