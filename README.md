@@ -3,7 +3,7 @@ Projeto Final do Curso EldoradoTech
 ________________________________________________________________________________________________________________________________________________________________________
 # BACKEND
 # A PRINCIPIO ESTOU USANDO AS TECNOLOGIAS ABAIXO
-BACKEND API, NESTA API ESTOU USANDO SEQUELIZE E SEQUELIZE CLI, MIGRATIONS, SEED, SWAGGER E MYSQL.
+BACKEND API, NESTA API ESTOU USANDO SEQUELIZE E SEQUELIZE CLI, MIGRATIONS, SEED, SWAGGER, SQLITE, JEST, DOTENV, SUPERTEST MYSQL.
 
 # BANCO 
 EDITAR O ARQUIVO NA RAIZ .env 
