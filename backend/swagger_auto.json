@@ -3,175 +3,24 @@
   "info": {
     "version": "1.0.0",
     "title": "REST API",
-    "description": ""
+    "description": "API COM TOKEN - PROJETO ELDORADOTECH"
   },
   "host": "localhost:3000",
   "basePath": "/",
-  "components": {
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
-      }
+  "components": {},
+  "security": [
+    {
+      "bearerAuth": []
     }
-  },
-  "security": [{
-    "bearerAuth": []
-  }],
+  ],
   "schemes": [
     "http"
   ],
   "paths": {
-    "/api/category": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/api/category/{id}": {
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/api/device": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/api/device/{id}": {
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/api/signin": {
       "post": {
-        "description": "",
+        "description": "Fazer login - token",
+        "sumary": "USUARIO",
         "parameters": [
           {
             "name": "body",
@@ -207,7 +56,7 @@
     },
     "/api/signup": {
       "post": {
-        "description": "",
+        "description": "Cadastro de Usuario",
         "parameters": [
           {
             "name": "body",
@@ -238,9 +87,10 @@
         }
       }
     },
-    "express.json()/api/signin": {
+    "/api/category": {
       "post": {
-        "description": "",
+        "description": "Cadastro de Category",
+        "sumary": "Cadastro de Category",
         "parameters": [
           {
             "name": "body",
@@ -248,10 +98,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
-                  "example": "any"
-                },
-                "password": {
+                "Name": {
                   "example": "any"
                 }
               }
@@ -262,11 +109,18 @@
           "200": {
             "description": "OK"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Not Found"
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "Lista de Category",
+        "sumary": "Lista de Category",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"
@@ -274,9 +128,32 @@
         }
       }
     },
-    "express.json()/api/signup": {
+    "/api/category/{id}": {
+      "delete": {
+        "description": "Delete de Category",
+        "sumary": "Delete de Category",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/device": {
       "post": {
-        "description": "",
+        "description": "Cadastro de Device",
+        "sumary": "Cadastro de Device",
         "parameters": [
           {
             "name": "body",
@@ -284,13 +161,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "password": {
+                "Color": {
                   "example": "any"
                 },
-                "name": {
+                "PartNumber": {
                   "example": "any"
                 },
-                "email": {
+                "Category_fk": {
                   "example": "any"
                 }
               }
@@ -305,7 +182,50 @@
             "description": "Internal Server Error"
           }
         }
+      },
+      "get": {
+        "description": "Category - Read",
+        "sumary": "Lista de Device",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
+    },
+    "/api/device/{id}": {
+      "delete": {
+        "description": "Category - Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "scheme": "token",
+      "description": "Adicione **token:  &lt;seu token>**"
     }
   }
 }
