@@ -23,7 +23,7 @@ EDITAR O ARQUIVO NA RAIZ .env
    - npm run test (RODA O JEST EM AMBIENTE DE TESTE, E CRIA UM BANCO SQLLITE PARA O MESMO TESTE)
  
  #ROTA DE TESTE - SWAGGER
-  Gerar token em na rota signin
+ - Gerar token em na rota signin
  - email:rafael.wfc@gmail.com  senha:123
  - copiar token gerado
  - adicionar token em Authorize 
