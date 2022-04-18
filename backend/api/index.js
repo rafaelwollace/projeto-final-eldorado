@@ -12,6 +12,8 @@ const port = 3000
 routes(app)
 
 const swaggerFile = require('../swagger_auto.json');
+
+
 app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.listen(port, () => console.log(`servidor está rodando na porta ${port}`))
