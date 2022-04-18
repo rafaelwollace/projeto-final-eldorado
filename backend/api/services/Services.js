@@ -18,6 +18,8 @@ class Services {
         return database[this.nameModel].destroy({ where: { id: id } })
     }
 
+    
+
 }
 
 
