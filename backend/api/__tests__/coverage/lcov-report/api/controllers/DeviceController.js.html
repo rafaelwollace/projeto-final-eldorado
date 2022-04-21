@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.44% </span>
+                <span class="strong">36.11% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/36</span>
+                <span class='fraction'>13/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.44% </span>
+                <span class="strong">36.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/36</span>
+                <span class='fraction'>13/36</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -104,22 +104,22 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -138,23 +138,23 @@ const deviceServices = new Services('Device')
 &nbsp;
 class DeviceController {
 &nbsp;
-  static async read(req, res) {
-    try {
-      const read = await deviceServices.read()
-      return res.status(200).json(read)
-    } <span class="branch-0 cbranch-no" title="branch not covered" >catch (error) {</span>
+  static async read<span class="fstat-no" title="function not covered" >(req, res) {</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      const read = await deviceServices.read()</span>
+<span class="cstat-no" title="statement not covered" >      return res.status(200).json(read)</span>
+<span class="cstat-no" title="statement not covered" >    } catch (error) {</span>
 <span class="cstat-no" title="statement not covered" >      return res.status(500).json(error.message)</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-  }
-  static async create(req, res) {
-    const nwDevice = req.body
-    try {
-<span class="branch-0 cbranch-no" title="branch not covered" >      const create = await deviceServices.create(nwDevice)</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+  static async create<span class="fstat-no" title="function not covered" >(req, res) {</span>
+<span class="cstat-no" title="statement not covered" >    const nwDevice = req.body</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      const create = await deviceServices.create(nwDevice)</span>
 <span class="cstat-no" title="statement not covered" >      return res.status(200).json(create)</span>
-    } catch (error) {
-      return res.status(500).json(error.message)
-    }
-  }
+<span class="cstat-no" title="statement not covered" >    } catch (error) {</span>
+<span class="cstat-no" title="statement not covered" >      return res.status(500).json(error.message)</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
   static async delete<span class="fstat-no" title="function not covered" >(req, res) {</span>
 <span class="cstat-no" title="statement not covered" >    const { id } = req.params</span>
@@ -175,7 +175,7 @@ module.exports = DeviceController</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Apr 11 2022 15:24:50 GMT-0400 (Horário Padrão do Amazonas)
+                at Tue Apr 19 2022 11:14:15 GMT-0400 (Horário Padrão do Amazonas)
             </div>
         <script src="../../prettify.js"></script>
         <script>
