@@ -1,6 +1,6 @@
 import { SignupService } from './signup.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Signup } from './signup';
 
 @Component({
@@ -19,13 +19,14 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.newSignupForm = this.formBuilder.group({
-      email: [''],
-      password: [''],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required, Validators.minLength(6)]],
       name:[''],
     });
   }
 
   cadastrar(){
     const newUSer = this.newSignupForm.getRawValue() as Signup;
+    console.log(newUSer);
   }
 }

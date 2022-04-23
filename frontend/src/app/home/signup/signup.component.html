@@ -4,8 +4,21 @@
 
 
       <form class="form mt-4" [formGroup]="newSignupForm" (submit)="cadastrar()">
-        <div class="form-group">
+        <div class="form-group  py-3">
+          <input
+           formControlName="name"
+            class="form-control"
+            type="text"
+            placeholder="Seu Nome"
+            name="name"
+            required
+            />
+        </div>
+
+
+        <div class="form-group py-3">
               <input
+              formControlName="email"
               class="form-control"
               type="text"
               placeholder="Seu E-mail"
@@ -13,17 +26,23 @@
               required
               />
         </div>
+        <app-mensagem
+          *ngIf="newSignupForm.get('email')?.errors?.['required'] && newSignupForm.get('email')?.touched"
+          mensagem="Email obrigatório">
+        </app-mensagem>
 
 
         <div class="form-group  py-3">
             <input
+            *ngIf="newSignupForm.get('password')?.errors"
+              formControlName="password"
               class="form-control"
               type="password"
               placeholder="Sua Senha"
               name="password"
               required
               />
-      </div>
+       </div>
 
       <div class="d-grid gap-2">
           <button class="btn btn-primary btn-block" type="submit" >Realizar Cadastro</button>
