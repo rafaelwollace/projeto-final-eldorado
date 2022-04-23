@@ -26,15 +26,11 @@
               required
               />
         </div>
-        <app-mensagem
-          *ngIf="newSignupForm.get('email')?.errors?.['required'] && newSignupForm.get('email')?.touched"
-          mensagem="Email obrigatório">
-        </app-mensagem>
+
 
 
         <div class="form-group  py-3">
             <input
-            *ngIf="newSignupForm.get('password')?.errors"
               formControlName="password"
               class="form-control"
               type="password"

@@ -2,6 +2,7 @@ import { SignupService } from './signup.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Signup } from './signup';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -14,19 +15,23 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private signupService: SignupService
+    private signupService: SignupService,
+    private router: Router
+
     ) { }
 
   ngOnInit(): void {
     this.newSignupForm = this.formBuilder.group({
-      email:['', [Validators.required, Validators.email]],
-      password:['', [Validators.required, Validators.minLength(6)]],
+      email:[''],
+      password:[''],
       name:[''],
     });
   }
 
   cadastrar(){
     const newUSer = this.newSignupForm.getRawValue() as Signup;
-    console.log(newUSer);
+    this.signupService.createSignup(newUSer).subscribe(()=>{
+    this.router.navigate(['']);
+    })
   }
 }
