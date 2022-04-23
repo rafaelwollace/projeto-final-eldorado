@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="text-center py-3">CADASTRO DE USUÁRIO</h4>
+
+
+      <form class="form mt-4" [formGroup]="newSignupForm" (submit)="cadastrar()">
+        <div class="form-group">
+              <input
+              class="form-control"
+              type="text"
+              placeholder="Seu E-mail"
+              name="email"
+              required
+              />
+        </div>
+
+
+        <div class="form-group  py-3">
+            <input
+              class="form-control"
+              type="password"
+              placeholder="Sua Senha"
+              name="password"
+              required
+              />
+      </div>
+
+      <div class="d-grid gap-2">
+          <button class="btn btn-primary btn-block" type="submit" >Realizar Cadastro</button>
+      </div>
+
+      </form>
+
+      <p><a [routerLink]="['login']"> Fazer login</a></p>
+
+
+  </div>
+</div>
