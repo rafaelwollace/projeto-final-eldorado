@@ -29,9 +29,14 @@ export class SignupComponent implements OnInit {
   }
 
   cadastrar(){
-    const newUSer = this.newSignupForm.getRawValue() as Signup;
-    this.signupService.createSignup(newUSer).subscribe(()=>{
-    this.router.navigate(['']);
-    })
+    const novoUsuario = this.newSignupForm.getRawValue() as Signup;
+    this.signupService.createSignup(novoUsuario).subscribe(
+    ()=>{
+      this.router.navigate(['']);
+      },
+      (error) => {
+        console.log('error');
+      }
+    )
   }
 }

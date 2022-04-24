@@ -22,7 +22,6 @@ class AuthController {
                         expiresIn: authConfig.expires
                     });
                     res.json({
-                        user: user,
                         token: token
                     })
                 } else {

@@ -12,4 +12,6 @@ export class SignupService {
  createSignup(Signup: Signup){
    return this.http.post('http://localhost:3000/api/signup', Signup);
  }
+
+
 }
