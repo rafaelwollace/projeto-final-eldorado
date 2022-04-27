@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListaCategoryComponent } from './lista-category/lista-category.component';
+import { IndexComponent } from './index/index.component';
+
+
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ListaCategoryComponent,
-  }
+  { path: 'category', redirectTo: 'category/index', pathMatch: 'full'},
+  { path: 'category/index', component: IndexComponent }
 ];
 
 @NgModule({

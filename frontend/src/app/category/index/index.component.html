@@ -1,0 +1,23 @@
+<div class="row py-3">
+
+  <app-create></app-create>
+  <br/><br/>
+      <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of category">
+                <td>{{ row.id }}</td>
+                <td>{{ row.Name }}</td>
+                <td>  <button type="button" (click)="deleteCategory(row.id)" class="btn btn-danger">Deletar</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+ </div>
+

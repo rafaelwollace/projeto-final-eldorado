@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="text-center py-3">CADASTRO DE USUÁRIO</h4>
+
+
+      <form class="form mt-4" [formGroup]="form" (submit)="cadastrar()">
+
+
+      <div class="d-grid gap-2 py-3">
+          <input placeholder="Sua Categoria" class="form-control" formControlName="Name" />
+      </div>
+
+      <div class="d-grid gap-2 py-3">
+          <button class="btn btn-primary btn-block" type="submit" >Realizar Cadastro</button>
+      </div>
+
+     </form>
+
+
+  </div>

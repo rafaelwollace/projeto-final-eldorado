@@ -5,9 +5,9 @@ const auth = require('../middlewares/auth');
 
 const router = Router()
 
-router.get('/api/device', auth, DeviceController.read)
-router.post('/api/device', auth, DeviceController.create)
-router.delete('/api/device/:id', auth, DeviceController.delete)
+router.get('/api/device', DeviceController.read)
+router.post('/api/device', DeviceController.create)
+router.delete('/api/device/:id', DeviceController.delete)
 
 
 module.exports = router
