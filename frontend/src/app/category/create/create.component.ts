@@ -30,7 +30,6 @@ export class CreateComponent implements OnInit {
     const novoUsuario = this.form.getRawValue() as Category;
     this.categoryService.createCategory(novoUsuario).subscribe(
     ()=>{
-      alert("Cadastro Relizado com Sucesso!");
       window.location.reload();
       // this.router.navigate(['category']);
       },

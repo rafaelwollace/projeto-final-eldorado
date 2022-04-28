@@ -15,6 +15,7 @@ import { Category } from 'src/app/interface/category';
 export class CreateComponent implements OnInit {
 
   public category: Category[] = [];
+  public device: Device[] = [];
 
 
   form!: FormGroup;
@@ -33,6 +34,14 @@ export class CreateComponent implements OnInit {
       Color:[''],
       PartNumber:['']
     });
+    this.listCategory();
+  }
+
+  deleteCategory(id:number){
+    this.deviceService.delete(id).subscribe(res => {
+         this.device = this.device.filter(item => item.id !== id);
+         console.log('Device deletado com successfully!');
+    })
   }
 
   listCategory(){
@@ -46,7 +55,6 @@ export class CreateComponent implements OnInit {
     const novoDevice = this.form.getRawValue() as Device;
     this.deviceService.createDevice(novoDevice).subscribe(
     ()=>{
-      alert("Cadastro Relizado com Sucesso!");
       window.location.reload();
       // this.router.navigate(['device']);
       },

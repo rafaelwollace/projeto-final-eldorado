@@ -6,7 +6,10 @@
 
 
       <div class="d-grid gap-2 py-3">
-          <input placeholder="Sua Category_fk" class="form-control" formControlName="Category_fk" />
+        <select formControlName="Category_fk" name="Category_fk" class="form-control" >
+          <option *ngFor = "let row of category" [value]="row.id">{{row.Name}}</option>
+        </select>
+
       </div>
 
       <div class="d-grid gap-2 py-3">
