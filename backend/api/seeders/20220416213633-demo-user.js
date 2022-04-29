@@ -6,9 +6,9 @@ module.exports = {
   async up (queryInterface, Sequelize) {
 
     await queryInterface.bulkInsert('User', [{
-      name: "Rafael Cunha",
+      username: "rafaelcunha",
       email: "rafael.wfc@gmail.com",
-      password: bcrypt.hashSync("123", +authConfig.rounds),
+      password: bcrypt.hashSync("123456", +authConfig.rounds),
     }], {});
 
   },

@@ -6,7 +6,9 @@
 
 
       <div class="d-grid gap-2 py-3">
+
         <select formControlName="Category_fk" name="Category_fk" class="form-control" >
+          <option value="" selected="selected">Selecione a Categoria</option>
           <option *ngFor = "let row of category" [value]="row.id">{{row.Name}}</option>
         </select>
 

@@ -14,13 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: {
-          msg: "Nome Somente Letras"
-        },
         len: {
           args: [2, 255],
           msg: "Nome com mínimo 2 caracteres"
