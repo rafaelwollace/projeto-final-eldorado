@@ -5,7 +5,7 @@ const auth = require('../middlewares/auth');
 
 const router = Router()
 
-router.get('/api/category',  CategoryController.read)
+router.get('/api/category',auth,   CategoryController.read)
 router.post('/api/category', CategoryController.create)  
 router.delete('/api/category/:id', CategoryController.delete)
 

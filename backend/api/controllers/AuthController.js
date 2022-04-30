@@ -8,7 +8,12 @@ class AuthController {
 
     
    static signIn(req, res) {
- 
+
+        res.header(
+            "Access-Control-Allow-Headers",
+            "x-access-token, Origin, Content-Type, Accept"
+        );
+
         let { username, password } = req.body;
 
         database.User.findOne({ where: {  username: username  } }).then(user => {
@@ -22,8 +27,10 @@ class AuthController {
                         expiresIn: authConfig.expires
                     });
                     res.json({
-                        user: user,
-                        token: token
+                        id: user.id,
+                        username: user.username,
+                        email: user.email,
+                        accessToken: token
                     })
                 } else {
                     res.status(401).json({ msg: "Senha invalida!" })
@@ -52,8 +59,10 @@ class AuthController {
             });
 
             res.json({
-                user: user,
-                token: token
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                accessToken: token
             });
 
         }).catch(err => {

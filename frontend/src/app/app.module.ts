@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CategoryModule } from './category/category.module';
 import { HeaderModule } from './componentes/header/header.module';
 import { DeviceModule } from './device/device.module';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -21,6 +22,7 @@ import { DeviceModule } from './device/device.module';
     FormsModule,
     CategoryModule,
     DeviceModule,
+    CommonModule,
     HeaderModule
   ],
   providers: [],

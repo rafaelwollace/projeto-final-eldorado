@@ -5,7 +5,7 @@ class DeviceServices extends Services {
         super('Device')
     }
    
-
+    
 }
 
 module.exports = DeviceServices

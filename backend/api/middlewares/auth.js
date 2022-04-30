@@ -6,8 +6,8 @@ module.exports = (req, res, next) => {
     if(!req.headers.authorization) {
         res.status(401).json({ msg: "Acesso não autorizado!" });
     } else {
+        let token = req.headers["x-access-token"];
 
-        let token = req.headers.authorization.split(" ")[1];
 
         jwt.verify(token, authConfig.secret, (err, decoded) => {
 
