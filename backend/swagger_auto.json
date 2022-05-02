@@ -7,6 +7,24 @@
   },
   "host": "localhost:3000",
   "basePath": "/",
+  "tags": [
+        {
+          "name": "signin",
+          "description": "Signin resource"
+        },
+        {
+          "name": "signup",
+          "description": "Signup resource"
+        },
+        {
+          "name": "device",
+          "description": "Device resource"
+        },
+        {
+          "name": "category",
+          "description": "Category resource"
+        }
+      ],
   "components": {},
   "security": [
     {
@@ -19,6 +37,9 @@
   "paths": {
     "/api/signin": {
       "post": {
+        "tags": [
+          "signin"
+        ],
         "description": "Fazer login - token",
         "sumary": "USUARIO",
         "parameters": [
@@ -56,6 +77,9 @@
     },
     "/api/signup": {
       "post": {
+        "tags": [
+          "signup"
+        ],
         "description": "Cadastro de Usuario",
         "parameters": [
           {
@@ -89,6 +113,9 @@
     },
     "/api/category": {
       "post": {
+        "tags": [
+          "category"
+        ],
         "description": "Cadastro de Category",
         "sumary": "Cadastro de Category",
         "parameters": [
@@ -115,6 +142,9 @@
         }
       },
       "get": {
+        "tags": [
+          "category"
+        ],
         "description": "Lista de Category",
         "sumary": "Lista de Category",
         "parameters": [],
@@ -130,6 +160,9 @@
     },
     "/api/category/{id}": {
       "delete": {
+        "tags": [
+          "category"
+        ],
         "description": "Delete de Category",
         "sumary": "Delete de Category",
         "parameters": [
@@ -152,6 +185,9 @@
     },
     "/api/device": {
       "post": {
+        "tags": [
+          "device"
+        ],
         "description": "Cadastro de Device",
         "sumary": "Cadastro de Device",
         "parameters": [
@@ -184,6 +220,9 @@
         }
       },
       "get": {
+        "tags": [
+          "device"
+        ],
         "description": "Category - Read",
         "sumary": "Lista de Device",
         "parameters": [],
@@ -199,6 +238,9 @@
     },
     "/api/device/{id}": {
       "delete": {
+        "tags": [
+          "device"
+        ],
         "description": "Category - Delete",
         "parameters": [
           {

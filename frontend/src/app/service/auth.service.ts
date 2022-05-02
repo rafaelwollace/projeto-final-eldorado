@@ -28,4 +28,13 @@ export class AuthService {
       password
     }, httpOptions);
   }
+
+  isAuth(): boolean{
+    const token = sessionStorage.getItem('auth-token');
+    if ( !sessionStorage.getItem('auth-token')) {
+        return false;
+    }
+    return true;
+  }
+
 }

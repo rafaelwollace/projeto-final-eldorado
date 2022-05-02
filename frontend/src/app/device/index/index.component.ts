@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Device } from 'src/app/interface/device';
 import { DeviceService } from 'src/app/service/device.service';
 import { ToastrService } from 'ngx-toastr';
+import { Category } from './../../interface/category';
 
 @Component({
   selector: 'app-index',
@@ -11,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class IndexComponent implements OnInit {
 
   public device: Device[] = [];
+
 
   constructor(
       private deviceService: DeviceService,

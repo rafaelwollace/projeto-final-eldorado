@@ -1,6 +1,5 @@
 const database = require('../models')
 
-
 class Services {
     constructor(nameModel) {
         this.nameModel = nameModel

@@ -1,11 +1,14 @@
+const DeviceServices = require('../services/DeviceServices')
 const Services = require('../services/Services')
+
 const deviceServices = new Services('Device')
+const deviceServiceC = new DeviceServices()
 
 class DeviceController {
 
   static async read(req, res) {
     try {
-      const read = await deviceServices.read()
+      const read = await deviceServiceC.read()
       return res.status(200).json(read)
     } catch (error) {
       return res.status(500).json(error.message)
