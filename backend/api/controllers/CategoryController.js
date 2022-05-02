@@ -16,10 +16,12 @@ class CategoryController {
   static async create(req, res) {
     const nwCategory = req.body
     try {
-      const newCategory = await categoryServices.create(nwCategory)
+      const newCategory = await categoryServices.create({ Name: req.body.Name })
       return res.status(200).json(newCategory)
-    } catch (error) {
-      return res.status(500).json(error.message)
+    } catch (err) {
+      return  res.status(500).json({
+        message: err.errors.map(e => e.message)
+      });
     }
   }
 

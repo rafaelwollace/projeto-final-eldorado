@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/interface/category';
 import { Device } from 'src/app/interface/device';
-import { CategoryService } from 'src/app/service/category.service';
 import { DeviceService } from 'src/app/service/device.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-index',
@@ -11,25 +10,16 @@ import { DeviceService } from 'src/app/service/device.service';
 })
 export class IndexComponent implements OnInit {
 
-  public filteredDevice: Device[] = [];
-
   public device: Device[] = [];
 
-  public category: Category[] = [];
-
-
-  constructor(private deviceService: DeviceService,
-      private categoryService: CategoryService) {};
+  constructor(
+      private deviceService: DeviceService,
+      private toastr: ToastrService
+      ) {};
 
       ngOnInit(): void {
-        this.categoryService.getAll().subscribe((data: Category[])=>{
-          this.category = data;
-          console.log(this.category);
-        }),
-
         this.deviceService.getAll().subscribe((data: Device[])=>{
           this.device = data;
-          console.log(this.device);
         })
       }
 
@@ -37,7 +27,8 @@ export class IndexComponent implements OnInit {
       deleteCategory(id:number){
         this.deviceService.delete(id).subscribe(res => {
              this.device = this.device.filter(item => item.id !== id);
-             console.log('Device deletado com successfully!');
-        })
+             this.toastr.error('Device Deletado Com Sucesso!!!');
+            })
       }
-}
+    }
+

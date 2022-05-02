@@ -18,8 +18,13 @@ export class DeviceService {
     return this.httpClient.get<Device[]>(baseUrl);
   }
 
-  createDevice(Device: Device){
-    return this.httpClient.post(baseUrl, Device);
+
+  createDevice(Color: string, PartNumber: number, Category_fk: number ): Observable<any> {
+    return this.httpClient.post(baseUrl, {
+      Color,
+      PartNumber,
+      Category_fk
+    });
   }
 
 

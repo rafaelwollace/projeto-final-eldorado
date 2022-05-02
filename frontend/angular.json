@@ -32,10 +32,13 @@
             ],
             "styles": [
               "src/styles.sass",
+              "node_modules/ngx-toastr/toastr.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/font-awesome/CSS/font-awesome.CSS"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {

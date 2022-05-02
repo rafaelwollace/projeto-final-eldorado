@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/service/category.service';
-import { Category } from 'src/app/interface/category';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create',
@@ -10,32 +8,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./create.component.sass']
 })
 export class CreateComponent implements OnInit {
+  form: any = {
+    Name: null
+  };
 
-  form!: FormGroup;
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
   constructor(
-    public formBuilder: FormBuilder,
     private categoryService: CategoryService,
-    private router: Router
-
+    private toastr: ToastrService,
     ) { }
 
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      Name:[''],
+  ngOnInit(): void {}
+
+  onSubmit(): void {
+    const { Name } = this.form;
+
+    this.categoryService.createCategory(Name).subscribe({
+      next: data => {
+        this.isSignUpFailed = false;
+        this.toastr.success('Cadastro Efetuado Com Sucesso!!!');
+        setTimeout(this.reloadPage, 600);
+      },
+      error: err => {
+        this.toastr.error(err.error.message);
+        // this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
     });
   }
 
-  cadastrar(){
-    const novoUsuario = this.form.getRawValue() as Category;
-    this.categoryService.createCategory(novoUsuario).subscribe(
-    ()=>{
-      window.location.reload();
-      // this.router.navigate(['category']);
-      },
-      (error) => {
-        console.log('error');
-      }
-    )
+  reloadPage() {
+    window.location.reload();
   }
+
+
 }

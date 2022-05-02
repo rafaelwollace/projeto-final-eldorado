@@ -20,17 +20,22 @@ module.exports = (sequelize, DataTypes) => {
     Name:{
      type: DataTypes.STRING,
      allowNull: false,
+
      validate: {
+      is:{
+        args:[/^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$/g],
+        msg:"Campo Category Somente letras."
+      },
       len:{
         args:[0,126],
-        msg:"Campo Name máximo 126 caracteres."
+        msg:"Campo Category máximo 126 caracteres."
       },
       notEmpty:{
         args: true,
-        msg: "Campo Name não pode ser vazio."
+        msg: "Campo Category não pode ser vazio."
       },
       notNull: {
-        msg: 'Campo Name não pode nullo.'
+        msg: 'Campo Category não pode nullo.'
       },
     },
     },

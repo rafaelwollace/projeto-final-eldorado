@@ -1,32 +1,94 @@
-<div class="card">
-  <div class="card-body">
-    <h4 class="text-center py-3">CADASTRO DE DEVICE</h4>
+<div class="row justify-content-center py-3">
 
-      <form class="form mt-4" [formGroup]="form" (submit)="cadastrar()">
+  <div class="col-12 col-md-8 ">
+      <h3 class="text-center">CADASTRO DE DEVICE</h3>
+      <div class="modal-content rounded-5 shadow  p-4 pt-5" >
+
+            <form
+              *ngIf="!isSuccessful"
+              name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+              novalidate
+          >
+            <div class="form-group py-3">
+
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Digite aqui sua Cor."
+                name="Color"
+                [(ngModel)]="form.Color"
+                required
+                maxlength="12"
+                ng-pattern="/^[a-zA-Z\s]*$/"
+                #Color="ngModel"
+              />
+
+              <div *ngIf="Color.errors && f.submitted">
+                <app-mensagem
+                *ngIf="Color.errors['required']"
+                mensagem="Cor é um campo de preenchimento obrigatório."
+              ></app-mensagem>
+
+              <app-mensagem
+                *ngIf="Color.errors['maxlength']"
+                  mensagem="A Category deve ter no máximo 12 caracteres."
+                ></app-mensagem>
+              </div>
+
+            </div>
+
+            <div class="form-group py-3">
+              <select   [(ngModel)]="form.Category_fk"
+                        name="Category_fk"
+                        ng-init="ngModel='Cool'"
+                        required
+                        #Category_fk="ngModel"
+                        class="form-control" >
+
+                <option  *ngFor = "let row of category" [value]="row.id">{{row.Name}}</option>
+              </select>
+            </div>
+
+            <div *ngIf="Category_fk.errors && f.submitted">
+              <app-mensagem
+              *ngIf="Category_fk.errors['required']"
+              mensagem="Category é um campo de preenchimento obrigatório."
+            ></app-mensagem>
+
+            </div>
+
+            <div class="form-group py-3">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Digite aqui seu PartNumber."
+                name="PartNumber"
+                [(ngModel)]="form.PartNumber"
+                required
+                #PartNumber="ngModel"
+              />
+            </div>
 
 
-      <div class="d-grid gap-2 py-3">
+            <div *ngIf="PartNumber.errors && f.submitted">
+              <app-mensagem
+              *ngIf="PartNumber.errors['required']"
+              mensagem="PartNumber é um campo de preenchimento obrigatório."
+            ></app-mensagem>
+            </div>
 
-        <select formControlName="Category_fk" name="Category_fk" class="form-control" >
-          <option value="" selected="selected">Selecione a Categoria</option>
-          <option *ngFor = "let row of category" [value]="row.id">{{row.Name}}</option>
-        </select>
+            <div class="form-group py-3">
+              <button class="w-100 btn btn-lg btn-primary btn-block">Realizar Cadastro</button>
+            </div>
 
-      </div>
-
-      <div class="d-grid gap-2 py-3">
-          <input placeholder="Sua Color" class="form-control" formControlName="Color" />
-      </div>
-
-      <div class="d-grid gap-2 py-3">
-          <input placeholder="Sua PartNumber" class="form-control" formControlName="PartNumber" />
-      </div>
-
-      <div class="d-grid gap-2 py-3">
-          <button class="btn btn-primary btn-block" type="submit" >Realizar Cadastro</button>
-      </div>
-
-     </form>
+          </form>
 
 
-  </div>
+
+    </div>
+
+ </div>
+ </div>
+

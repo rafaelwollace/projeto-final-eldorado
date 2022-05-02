@@ -16,15 +16,16 @@ export class CategoryService {
     return this.httpClient.get<Category[]>(baseUrl);
   }
 
-  createCategory(Category: Category){
-    return this.httpClient.post(baseUrl, Category);
-  }
 
+  createCategory(Name: string): Observable<any> {
+    return this.httpClient.post(baseUrl, {
+      Name
+    });
+  }
 
   delete(id: any): Observable<any> {
     return this.httpClient.delete(`${baseUrl}/${id}`);
   }
-
 
 
 }

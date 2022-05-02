@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: {
+        msg: "Já existe cadastro com este Username."
+      },
       validate: {
         len: {
           args: [2, 255],
@@ -27,7 +30,9 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: {
+        msg: "Já existe cadastro com este E-mail."
+      },
       validate: {
         isEmail: {
           msg: "Digite um E-mail valido"
@@ -40,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: {
           args: [6, 255],
-          msg: "Senha com mínimo1 6 caracteres"
+          msg: "Senha com mínimo 6 caracteres"
         }
       }
     },

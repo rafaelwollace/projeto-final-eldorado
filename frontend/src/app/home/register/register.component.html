@@ -6,7 +6,7 @@
 
             <img
               id="profile-img"
-              src="https://www.eldorado.org.br/wp-content/uploads/2017/05/Logo-Eldorado-Color-160.png"
+              src="../../../assets/img/logo-eldorado.png"
               class="img-fluid"
             />
 
@@ -30,15 +30,23 @@
                 maxlength="20"
                 #username="ngModel"
               />
-              <div class="alert-danger" *ngIf="username.errors && f.submitted">
-                <div *ngIf="username.errors['required']">Username is required</div>
-                <div *ngIf="username.errors['minlength']">
-                  Username must be at least 3 characters
-                </div>
-                <div *ngIf="username.errors['maxlength']">
-                  Username must be at most 20 characters
-                </div>
-              </div>
+              <div *ngIf="username.errors && f.submitted">
+                <app-mensagem
+                *ngIf="username.errors['required']"
+                mensagem="Username é um campo de preenchimento obrigatório."
+              ></app-mensagem>
+
+              <app-mensagem
+                *ngIf="username.errors['minlength']"
+                  mensagem="Seu Username deve ter no minimo 3 caracteres."
+              ></app-mensagem>
+
+              <app-mensagem
+              *ngIf="username.errors['maxlength']"
+                mensagem="Seu Username deve ter no máximo 20 caracteres."
+              ></app-mensagem>
+
+            </div>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
@@ -51,11 +59,16 @@
                 email
                 #email="ngModel"
               />
-              <div class="alert-danger" *ngIf="email.errors && f.submitted">
-                <div *ngIf="email.errors['required']">Email is required</div>
-                <div *ngIf="email.errors['email']">
-                  Email must be a valid email address
-                </div>
+              <div *ngIf="email.errors && f.submitted">
+                <app-mensagem
+                  *ngIf="email.errors['required']"
+                  mensagem="Email é um campo de preenchimento obrigatório."
+                ></app-mensagem>
+
+                <app-mensagem
+                  *ngIf="email.errors['email']"
+                    mensagem="Digite um email valido.."
+                ></app-mensagem>
               </div>
             </div>
             <div class="form-group">
@@ -69,24 +82,34 @@
                 minlength="6"
                 #password="ngModel"
               />
-              <div class="alert-danger" *ngIf="password.errors && f.submitted">
-                <div *ngIf="password.errors['required']">Password is required</div>
-                <div *ngIf="password.errors['minlength']">
-                  Password must be at least 6 characters
-                </div>
+              <div *ngIf="password.errors && f.submitted">
+
+              <app-mensagem
+                  *ngIf="password.errors['required']"
+                  mensagem="Password é um campo de preenchimento obrigatório."
+              ></app-mensagem>
+
+              <app-mensagem
+                 *ngIf="password.errors['minlength']"
+                  mensagem="Password com mínimo  6 caracteres."
+              ></app-mensagem>
+
               </div>
+
             </div>
             <div class="form-group py-3">
               <button class="w-100 btn btn-lg btn-primary btn-block">Realizar Cadastro</button>
             </div>
 
+
             <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-              Signup failed!<br />{{ errorMessage }}
+              Falha ao efetuar login!<br />{{ errorMessage }}
             </div>
           </form>
 
+
           <div class="alert alert-success py-3" *ngIf="isSuccessful">
-            Your registration is successful!
+            Cadastro efetuado com sucesso!!!
           </div>
 
     </div>

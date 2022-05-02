@@ -66,7 +66,9 @@ class AuthController {
             });
 
         }).catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                message: err.errors.map(e => e.message)
+              });
         });
 
     }

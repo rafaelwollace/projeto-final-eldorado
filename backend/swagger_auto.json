@@ -28,7 +28,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
+                "username": {
                   "example": "any"
                 },
                 "password": {
@@ -67,7 +67,7 @@
                 "password": {
                   "example": "any"
                 },
-                "name": {
+                "username": {
                   "example": "any"
                 },
                 "email": {

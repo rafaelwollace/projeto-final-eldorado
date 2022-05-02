@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from 'src/app/service/category.service';
-import { Device } from 'src/app/interface/device';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { DeviceService } from 'src/app/service/device.service';
+import { ToastrService } from 'ngx-toastr';
+import { CategoryService } from 'src/app/service/category.service';
 import { Category } from 'src/app/interface/category';
-
 
 @Component({
   selector: 'app-create',
@@ -14,53 +11,50 @@ import { Category } from 'src/app/interface/category';
 })
 export class CreateComponent implements OnInit {
 
+  form: any = {
+    Color: null,
+    PartNumber: null,
+    Category_fk: null
+  };
+
+
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+
   public category: Category[] = [];
-  public device: Device[] = [];
-
-
-  form!: FormGroup;
 
   constructor(
-    public formBuilder: FormBuilder,
     private deviceService: DeviceService,
-    private router: Router,
+    private toastr: ToastrService,
     private categoryService: CategoryService
-
     ) { }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      Category_fk:[''],
-      Color:[''],
-      PartNumber:['']
-    });
-    this.listCategory();
-  }
+      this.categoryService.getAll().subscribe((data: Category[])=>{
+        this.category = data;
+      })
+    }
 
-  deleteCategory(id:number){
-    this.deviceService.delete(id).subscribe(res => {
-         this.device = this.device.filter(item => item.id !== id);
-         console.log('Device deletado com successfully!');
-    })
-  }
+  onSubmit(): void {
+    const { Color, PartNumber, Category_fk } = this.form;
 
-  listCategory(){
-    this.categoryService.getAll().subscribe((data: Category[])=>{
-      this.category = data;
-      console.log(this.category);
-    })
-  }
-
-  cadastrar(){
-    const novoDevice = this.form.getRawValue() as Device;
-    this.deviceService.createDevice(novoDevice).subscribe(
-    ()=>{
-      window.location.reload();
-      // this.router.navigate(['device']);
+    this.deviceService.createDevice(Color, PartNumber, Category_fk).subscribe({
+      next: data => {
+        this.isSignUpFailed = false;
+        this.toastr.success('Cadastro Efetuado Com Sucesso!!!');
+        setTimeout(this.reloadPage, 600);
       },
-      (error) => {
-        console.log('error');
+      error: err => {
+        this.toastr.error(err.error.message);
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
       }
-    )
+    });
   }
+
+  reloadPage() {
+    window.location.reload();
+  }
+
 }

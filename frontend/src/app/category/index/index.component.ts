@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/interface/category';
 import { CategoryService } from 'src/app/service/category.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-index',
@@ -11,12 +12,14 @@ export class IndexComponent implements OnInit {
 
   category: Category[] = [];
 
- constructor(public categoryService: CategoryService) { }
+ constructor(
+   private categoryService: CategoryService,
+   private toastr: ToastrService
+   ) { }
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe((data: Category[])=>{
       this.category = data;
-      console.log(this.category);
     })
   }
 
@@ -24,7 +27,7 @@ export class IndexComponent implements OnInit {
   deleteCategory(id:number){
     this.categoryService.delete(id).subscribe(res => {
          this.category = this.category.filter(item => item.id !== id);
-         console.log('Post deleted successfully!');
+         this.toastr.error('Categoria Deletada Com Sucesso!!!');
     })
   }
 
