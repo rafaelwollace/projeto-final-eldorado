@@ -6,10 +6,10 @@ class DeviceServices extends Services {
         super('Device')
         this.category = new Services('Category')
     }
-    
+
 
     async read() {
-        return database[this.nameModel].findAll({ include: { model: database.Category }})
+        return database[this.nameModel].findAll({ include: { model: database.Category,  required: true }})
     }
 
 

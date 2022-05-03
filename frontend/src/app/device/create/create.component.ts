@@ -14,7 +14,7 @@ export class CreateComponent implements OnInit {
   form: any = {
     Color: null,
     PartNumber: null,
-    Category_fk: null
+    Category_fk: 1
   };
 
 

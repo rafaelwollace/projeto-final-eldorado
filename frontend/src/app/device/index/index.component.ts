@@ -12,7 +12,7 @@ import { Category } from './../../interface/category';
 export class IndexComponent implements OnInit {
 
   public device: Device[] = [];
-
+  public Category: Category[] = [];
 
   constructor(
       private deviceService: DeviceService,
