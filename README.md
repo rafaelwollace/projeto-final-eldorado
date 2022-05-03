@@ -39,7 +39,7 @@ EDITAR O ARQUIVO NA RAIZ .env
   ____________________________________________________________________________________________________________________________________________________________________
 ***FRONTEND
 
-# INSTALANDO DEPENDÊNCIAS - BACKEND
+# INSTALANDO DEPENDÊNCIAS - FRONTEND
   ENTRE NA PASTA FRONTEND
   - npm install
   - npm install -g @angular/cli
