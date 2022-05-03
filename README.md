@@ -1,5 +1,11 @@
 # projeto-final-eldorado
 Projeto Final do Curso EldoradoTech
+
+LINK BACKEND API
+https://desafio-final-eldorado.herokuapp.com/
+
+LINK FRONTEND API
+https://desafio-final-front.herokuapp.com/home
 ________________________________________________________________________________________________________________________________________________________________________
 # BACKEND
 # A PRINCIPIO ESTOU USANDO AS TECNOLOGIAS ABAIXO
@@ -9,7 +15,7 @@ BACKEND API, NESTA API ESTOU USANDO SEQUELIZE E SEQUELIZE CLI, MIGRATIONS, SEED,
 EDITAR O ARQUIVO NA RAIZ .env 
   COLOCAR SUAS CONFIGURAÇÕES DE BANCO MYSQL
   
-# INSTALANDO DEPENDÊNCIAS 
+# INSTALANDO DEPENDÊNCIAS - BACKEND
   ENTRE NA PASTA BACKEND
   
   COM O NODE INSTALADO NA PASTA BACKEND DIGITE
@@ -28,8 +34,13 @@ EDITAR O ARQUIVO NA RAIZ .env
  - copiar token gerado
  - adicionar token em Authorize 
  - Copia igual ex: ( token: token gerado )
-  
 
  - http://localhost:3000/
   ____________________________________________________________________________________________________________________________________________________________________
+***FRONTEND
 
+# INSTALANDO DEPENDÊNCIAS - BACKEND
+  ENTRE NA PASTA FRONTEND
+  -npm install
+  -npm install -g @angular/cli
+  -ng s
