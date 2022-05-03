@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../service/user.service';
+
 
 
 @Component({
@@ -10,7 +10,7 @@ import { UserService } from '../service/user.service';
 export class HomeComponent implements OnInit {
   content?: string;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
 
