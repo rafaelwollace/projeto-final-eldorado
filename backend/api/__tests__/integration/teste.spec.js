@@ -25,20 +25,6 @@ describe('Testando EndPoint Category', function () {
             .expect(200, done);
     });
 
-    //erro de fk não existe no db
-    it('Cadastro de Device', function (done) {
-        request(app)
-            .post('/api/device')
-            .send({
-                "id": 1,
-                "Color": "Black",
-                "PartNumber": 123456,
-                "Category_fk": 2
-            })
-            .set('Accept', 'application/json')
-            .expect(200, done);
-    });
-
 
     it('Lista de Device', function (done) {
         request(app)

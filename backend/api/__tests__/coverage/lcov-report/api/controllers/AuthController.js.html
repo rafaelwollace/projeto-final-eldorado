@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.53% </span>
+                <span class="strong">25.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/69</span>
+                <span class='fraction'>19/75</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.53% </span>
+                <span class="strong">25.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/69</span>
+                <span class='fraction'>19/75</span>
             </div>
         
             
@@ -131,7 +131,13 @@
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -167,9 +173,15 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -209,22 +221,24 @@ class AuthController {
 &nbsp;
     
    static <span class="fstat-no" title="function not covered" >signIn(req, res) {</span>
-<span class="cstat-no" title="statement not covered" > </span>
-<span class="cstat-no" title="statement not covered" >        let { email, password } = req.body;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        database.User.findOne({ where: {  email: email  } }).then(user =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        let { username, password } = req.body;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        database.User.findOne({ where: {  username: username  } }).then(user =&gt; {</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >            if (!user) {</span>
-<span class="cstat-no" title="statement not covered" >                res.status(404).json({ msg: "Email não encontrado." });</span>
+<span class="cstat-no" title="statement not covered" >                res.status(404).json({ msg: "Usuario não encontrado." });</span>
 <span class="cstat-no" title="statement not covered" >            } else {</span>
 <span class="cstat-no" title="statement not covered" >                if (bcrypt.compareSync(password, user.password)) {</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >                    let token = jwt.sign({ user: user }, authConfig.secret, {</span>
+<span class="cstat-no" title="statement not covered" >                    let   token = jwt.sign({ user: user }, authConfig.secret, {</span>
 <span class="cstat-no" title="statement not covered" >                        expiresIn: authConfig.expires</span>
 <span class="cstat-no" title="statement not covered" >                    });</span>
 <span class="cstat-no" title="statement not covered" >                    res.json({</span>
-<span class="cstat-no" title="statement not covered" >                        user: user,</span>
-<span class="cstat-no" title="statement not covered" >                        token: token</span>
+<span class="cstat-no" title="statement not covered" >                        id: user.id,</span>
+<span class="cstat-no" title="statement not covered" >                        username: user.username,</span>
+<span class="cstat-no" title="statement not covered" >                        email: user.email,</span>
+<span class="cstat-no" title="statement not covered" >                        accessToken: token</span>
 <span class="cstat-no" title="statement not covered" >                    })</span>
 <span class="cstat-no" title="statement not covered" >                } else {</span>
 <span class="cstat-no" title="statement not covered" >                    res.status(401).json({ msg: "Senha invalida!" })</span>
@@ -243,7 +257,7 @@ class AuthController {
 <span class="cstat-no" title="statement not covered" >        let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >        database.User.create({</span>
-<span class="cstat-no" title="statement not covered" >            name: req.body.name,</span>
+<span class="cstat-no" title="statement not covered" >            username: req.body.username,</span>
 <span class="cstat-no" title="statement not covered" >            email: req.body.email,</span>
 <span class="cstat-no" title="statement not covered" >            password: password</span>
 <span class="cstat-no" title="statement not covered" >        }).then(user =&gt; {</span>
@@ -253,12 +267,16 @@ class AuthController {
 <span class="cstat-no" title="statement not covered" >            });</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >            res.json({</span>
-<span class="cstat-no" title="statement not covered" >                user: user,</span>
-<span class="cstat-no" title="statement not covered" >                token: token</span>
+<span class="cstat-no" title="statement not covered" >                id: user.id,</span>
+<span class="cstat-no" title="statement not covered" >                username: user.username,</span>
+<span class="cstat-no" title="statement not covered" >                email: user.email,</span>
+<span class="cstat-no" title="statement not covered" >                accessToken: token</span>
 <span class="cstat-no" title="statement not covered" >            });</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >        }).catch(err =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            res.status(500).json(err);</span>
+<span class="cstat-no" title="statement not covered" >            res.status(500).json({</span>
+<span class="cstat-no" title="statement not covered" >                message: err.errors.map(e =&gt; e.message)</span>
+<span class="cstat-no" title="statement not covered" >              });</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    }</span>
@@ -274,7 +292,7 @@ module.exports = AuthController</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Apr 19 2022 11:14:15 GMT-0400 (Horário Padrão do Amazonas)
+                at Tue May 03 2022 19:47:57 GMT-0400 (Horário Padrão do Amazonas)
             </div>
         <script src="../../prettify.js"></script>
         <script>
